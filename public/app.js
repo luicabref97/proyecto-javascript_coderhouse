@@ -18,9 +18,9 @@ class roundPizza {
     }
 }
 const roundPizzas = []
-roundPizzas.push(new roundPizza("Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, '../images/supremeround.jpg'))
-roundPizzas.push(new roundPizza("Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, '../images/pepperoniround.jpg'))
-roundPizzas.push(new roundPizza("Classic Cheese", "Pizza grande con salsa de tomate y queso", 1500, '../images/cheeseround.jpg'))
+roundPizzas.push(new roundPizza("Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, './images/supremeround.jpg'))
+roundPizzas.push(new roundPizza("Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, './images/pepperoniround.jpg'))
+roundPizzas.push(new roundPizza("Classic Cheese", "Pizza grande con salsa de tomate y queso", 1500, './images/cheeseround.jpg'))
 
 function renderizarRoundPizzas() {
     roundPizzas.forEach((info) => {
@@ -77,8 +77,8 @@ class deepDishPizza {
     }
 }
 const deepDishPizzas = []
-deepDishPizzas.push(new deepDishPizza("Detroit-Sytle Deep Dish Sausage", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate, queso y salchicha italiana", 1900, '../images/deepdmeet.jpg'))
-deepDishPizzas.push(new deepDishPizza("Detroit-Sytle Deep Dish Cheese", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate y queso", 1500, '../images/deepdcheese.jpg'))
+deepDishPizzas.push(new deepDishPizza("Detroit-Sytle Deep Dish Sausage", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate, queso y salchicha italiana", 1900, './images/deepdmeet.jpg'))
+deepDishPizzas.push(new deepDishPizza("Detroit-Sytle Deep Dish Cheese", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate y queso", 1500, './images/deepdcheese.jpg'))
 
 function renderizarDeepDish() {
     deepDishPizzas.forEach((info) => {
@@ -135,8 +135,8 @@ class Side {
     }
 }
 const Sides = []
-Sides.push(new Side("Italian Cheese Bread", "10 piezas de pan recien horneado con borde crispy, queso y topping de especias italianas", 1200, '../images/italianbreads.jpg'))
-Sides.push(new Side("Crazy Breads", "8 panes tipo baston con sabor a manteca y ajo, cubierto con queso parmesano rallado", 900, '../images/crazybreads.jpg'))
+Sides.push(new Side("Italian Cheese Bread", "10 piezas de pan recien horneado con borde crispy, queso y topping de especias italianas", 1200, './images/italianbreads.jpg'))
+Sides.push(new Side("Crazy Breads", "8 panes tipo baston con sabor a manteca y ajo, cubierto con queso parmesano rallado", 900, './images/crazybreads.jpg'))
 
 function renderizarSides() {
     Sides.forEach((info) => {
@@ -193,8 +193,8 @@ class Dessert {
     }
 }
 const Desserts = []
-Desserts.push(new Dessert("Cookie Brownie M&M'S", "Brownie cubierto con masa para galletas y M&M'S", 600, '../images/browniemym.jpg'))
-Desserts.push(new Dessert("Cookie Brownie Coffler Block", "Brownie cubierto con masa para galletas y chocolates Coffler block", 600, '../images/browniechocolate.jpg'))
+Desserts.push(new Dessert("Cookie Brownie M&M'S", "Brownie cubierto con masa para galletas y M&M'S", 600, './images/browniemym.jpg'))
+Desserts.push(new Dessert("Cookie Brownie Coffler Block", "Brownie cubierto con masa para galletas y chocolates Coffler block", 600, './images/browniechocolate.jpg'))
 
 function renderizarDesserts() {
     Desserts.forEach((info) => {
@@ -287,7 +287,7 @@ const renderizarCheckOut = () => {
     DOMcheckout.innerHTML = ''
     if(Object.keys(carrito).length === 0) {
         DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
-        <div class="my-5 mx-0"><img class="w-full" src="../images/Frame.svg" alt="#"></div>
+        <div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
         <span class="font-fontText font-medium text-sm text-center text-gray-500">Tu carrito esta vacío</span>
         <span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
     </div>`
