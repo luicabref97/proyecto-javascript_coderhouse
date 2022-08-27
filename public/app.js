@@ -18,9 +18,9 @@ class roundPizza {
     }
 }
 const roundPizzas = []
-roundPizzas.push(new roundPizza("Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, '../images/supremeround.jpg'))
-roundPizzas.push(new roundPizza("Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, '../images/pepperoniround.jpg'))
-roundPizzas.push(new roundPizza("Classic Cheese", "Pizza grande con salsa de tomate y queso", 1500, '../images/cheeseround.jpg'))
+roundPizzas.push(new roundPizza("Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, './images/supremeround.jpg'))
+roundPizzas.push(new roundPizza("Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, './images/pepperoniround.jpg'))
+roundPizzas.push(new roundPizza("Classic Cheese", "Pizza grande con salsa de tomate y queso", 1500, './images/cheeseround.jpg'))
 
 function renderizarRoundPizzas() {
     roundPizzas.forEach((info) => {
