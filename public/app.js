@@ -6,7 +6,6 @@ const DOMproductsDesserts = document.querySelector('#postres-Container')
 const DOMcheckout = document.querySelector('#carrito')
 const DOMnumCarrito = document.querySelector('#cantidad-carrito')
 
-
 const carrito = []
 
 class roundPizza {
@@ -17,6 +16,7 @@ class roundPizza {
         this.imagen = imagen;
     }
 }
+
 const roundPizzas = []
 roundPizzas.push(new roundPizza("Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, './images/supremeround.jpg'))
 roundPizzas.push(new roundPizza("Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, './images/pepperoniround.jpg'))
@@ -247,7 +247,6 @@ const productsDeepDish = document.getElementById('deepDish-Container')
 const productsSides = document.getElementById('Sides-Container')
 const productsDesserts = document.getElementById('postres-Container')
 
-
 productsRoundPizza.addEventListener('click', e => {
     addCarrito(e)
 })
@@ -268,7 +267,6 @@ const addCarrito = e => {
     e.stopPropagation()
 }
 const setCarrito = objeto => {
-    //console.log(objeto)
     const product = {
         nombre: objeto.querySelector('.product-title').textContent,
         descripcion: objeto.querySelector('.product-description').textContent,
@@ -344,8 +342,8 @@ const renderizarCheckOut = () => {
             const productsElement = document.createElement('div')
             productsElement.classList.add('max-w-full')
             productsElement.classList.add('flex')
-            productsElement.classList.add('gap-5')
-            productsElement.classList.add('p-5')
+            productsElement.classList.add('gap-4')
+            productsElement.classList.add('p-4')
             const cartProductContent = `
         <div class="max-w-full flex flex-shrink-0 items-center">
             <span class="text-base font-fontPrincipal font-medium tracking-normal text-black m-0 p-0 block">${info.cantidad}</span>
@@ -416,8 +414,6 @@ const changeInfoYColor = e => {
             document.getElementById('span-check').classList.add('peer-checked:left-17')
             document.getElementById('deliveryType-checked').classList.remove('text-green-500')
             document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
-            document.getElementById('deliveryType-nochecked').classList.add('transition-all')
-            document.getElementById('deliveryType-nochecked').classList.add('duration-500')
         } else {
             document.getElementById('entregaDomicilio').classList.add('flex')
             document.getElementById('entregaDomicilio').classList.remove('hidden')
@@ -425,8 +421,6 @@ const changeInfoYColor = e => {
             document.getElementById('entregaRecoger').classList.add('hidden')
             document.getElementById('deliveryType-checked').classList.add('text-green-500')
             document.getElementById('deliveryType-nochecked').classList.remove('text-green-500')
-            document.getElementById('deliveryType-checked').classList.add('transition-all')
-            document.getElementById('deliveryType-checked').classList.add('duration-500')
         }
     }
 }
