@@ -378,4 +378,55 @@ const renderizarCheckOut = () => {
 }
 renderizarCheckOut()
 
+const checkOutArea = document.getElementById('areaCarrito')
+const btnCarrito = document.getElementById('btnCarrito')
+let contador = 0
 
+btnCarrito.addEventListener('click', e => {
+    mostrarCheckOutAreaConClick(e)
+})
+
+const mostrarCheckOutAreaConClick = e => {
+    if(contador == 0) {
+        checkOutArea.classList.remove('1184max:hidden')
+        contador = 1
+    } else {
+        checkOutArea.classList.add('1184max:hidden')
+        contador = 0
+        
+    }
+}
+
+const deliverySelection = document.querySelector('.delivery-type')
+const checkbox = document.getElementById('check')
+
+deliverySelection.addEventListener('click', e => {
+    changeInfoYColor(e)
+})
+
+const changeInfoYColor = e => {
+    checkbox.addEventListener('change', validaCheckbox, false)
+    function validaCheckbox() {
+        let checked = checkbox.checked
+        if(checked){
+            document.getElementById('entregaDomicilio').classList.remove('flex')
+            document.getElementById('entregaDomicilio').classList.add('hidden')
+            document.getElementById('entregaRecoger').classList.add('flex')
+            document.getElementById('entregaRecoger').classList.remove('hidden')
+            document.getElementById('span-check').classList.add('peer-checked:left-17')
+            document.getElementById('deliveryType-checked').classList.remove('text-green-500')
+            document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
+            document.getElementById('deliveryType-nochecked').classList.add('transition-all')
+            document.getElementById('deliveryType-nochecked').classList.add('duration-500')
+        } else {
+            document.getElementById('entregaDomicilio').classList.add('flex')
+            document.getElementById('entregaDomicilio').classList.remove('hidden')
+            document.getElementById('entregaRecoger').classList.remove('flex')
+            document.getElementById('entregaRecoger').classList.add('hidden')
+            document.getElementById('deliveryType-checked').classList.add('text-green-500')
+            document.getElementById('deliveryType-nochecked').classList.remove('text-green-500')
+            document.getElementById('deliveryType-checked').classList.add('transition-all')
+            document.getElementById('deliveryType-checked').classList.add('duration-500')
+        }
+    }
+}
