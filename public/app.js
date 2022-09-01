@@ -6,7 +6,14 @@ const DOMproductsDesserts = document.querySelector('#postres-Container')
 const DOMcheckout = document.querySelector('#carrito')
 const DOMnumCarrito = document.querySelector('#cantidad-carrito')
 
-const carrito = []
+let carrito = {}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('carrito')) {
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        renderizarCheckOut()
+    }
+})
 
 class roundPizza {
     constructor(nombre, descripcion, precio, imagen){
@@ -276,6 +283,7 @@ const setCarrito = objeto => {
     if(carrito.hasOwnProperty(product.nombre)) {
         product.cantidad = carrito[product.nombre].cantidad + 1
     }
+    
     carrito[product.nombre] = {...product}
     renderizarCheckOut()
 }
@@ -334,9 +342,9 @@ const renderizarCheckOut = () => {
                 <hr class="block w-full m-0 h-px bg-white">
             </div>
         </div>
-    </div>`
-    const DOMproductsCarrito = document.querySelector('#cartProductContainer')
-    const renderizarCarrito = () => {
+        </div>`
+        const DOMproductsCarrito = document.querySelector('#cartProductContainer')
+        const renderizarCarrito = () => {
         DOMproductsCarrito.innerHTML = ''
         Object.values(carrito).forEach((info) => {
             const productsElement = document.createElement('div')
@@ -363,16 +371,17 @@ const renderizarCheckOut = () => {
                 </svg>
             </button>
         </div>`
-            productsElement.innerHTML = cartProductContent;
-            DOMproductsCarrito.append(productsElement);
-        })
-    }
-    renderizarCarrito()
-    const modificarNumCarrito = () => {
-        DOMnumCarrito.innerHTML = nCantidad
-    }
-    modificarNumCarrito()
-    }
+        productsElement.innerHTML = cartProductContent;
+        DOMproductsCarrito.append(productsElement);
+    })
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+}
+renderizarCarrito()
+const modificarNumCarrito = () => {
+    DOMnumCarrito.innerHTML = nCantidad
+}
+modificarNumCarrito()
+}
 }
 renderizarCheckOut()
 
