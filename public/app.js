@@ -19,6 +19,48 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarCheckOut()
 })
 
+btnCarrito.addEventListener('click', e => {
+    mostrarCheckOutAreaConClick(e)
+})
+
+const mostrarCheckOutAreaConClick = e => {
+    if(contador == 0) {
+        checkOutArea.classList.remove('1184max:hidden')
+        contador = 1
+    } else {
+        checkOutArea.classList.add('1184max:hidden')
+        contador = 0
+        
+    }
+}
+
+deliverySelection.addEventListener('click', e => {
+    changeInfoYColor(e)
+})
+
+const changeInfoYColor = e => {
+    checkbox.addEventListener('change', validaCheckbox, false)
+    function validaCheckbox() {
+        let checked = checkbox.checked
+        if(checked){
+            document.getElementById('entregaDomicilio').classList.remove('flex')
+            document.getElementById('entregaDomicilio').classList.add('hidden')
+            document.getElementById('entregaRecoger').classList.add('flex')
+            document.getElementById('entregaRecoger').classList.remove('hidden')
+            document.getElementById('span-check').classList.add('peer-checked:left-17')
+            document.getElementById('deliveryType-checked').classList.remove('text-green-500')
+            document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
+        } else {
+            document.getElementById('entregaDomicilio').classList.add('flex')
+            document.getElementById('entregaDomicilio').classList.remove('hidden')
+            document.getElementById('entregaRecoger').classList.remove('flex')
+            document.getElementById('entregaRecoger').classList.add('hidden')
+            document.getElementById('deliveryType-checked').classList.add('text-green-500')
+            document.getElementById('deliveryType-nochecked').classList.remove('text-green-500')
+        }
+    }
+}
+
 class roundPizza {
     constructor(id ,nombre, descripcion, precio, imagen){
         this.id = id;
@@ -303,6 +345,7 @@ const renderizarCheckOut = () => {
             return total + miItem[0].precio;
         }, 0);
     }
+    
     if(carrito.length > 0) {
         DOMcheckout.innerHTML = 
         `<div id="checkout" class="w-full">
@@ -342,6 +385,12 @@ const renderizarCheckOut = () => {
                 </div>
             </div>
         </div>`
+    } else {
+        DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
+<div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
+<span class="font-fontText font-medium text-sm text-center text-gray-500">Tu carrito esta vacío</span>
+<span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
+</div>`
     }
     const DOMproductsCarrito = document.querySelector('#cartProductContainer')
     
@@ -373,71 +422,22 @@ const renderizarCheckOut = () => {
             </div>
         </div>
         <button aria-label="boton-trash" class="flex-shrink-0 leading-none flex -m-1 bg-transparent relative max-w-full rounded-100% cursor-pointer select-none no-underline text-center shadow-transparent p-0 items-center justify-center">
-            <svg class="flex-shrink-0 overflow-visible" width="14" height="16" viewbox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path data-id="${item}" class="delete-product" d="M4.225 0.552813C4.39375 0.214 4.74063 0 5.11875 0H8.88125C9.25938 0 9.60625 0.214 9.775 0.552813L10 1H13C13.5531 1 14 1.44781 14 2C14 2.55219 13.5531 3 13 3H1C0.447812 3 0 2.55219 0 2C0 1.44781 0.447812 1 1 1H4L4.225 0.552813ZM12.3375 14.5656C12.2875 15.3844 11.6344 16 10.8406 16H3.15937C2.36719 16 1.71156 15.3844 1.66219 14.5656L0.971875 4H13L12.3375 14.5656Z" fill="black"/>
-            </svg>
+            <img id="borrar-btn" class="borrar-btn flex-shrink-0 overflow-visible" data-id="${item}" src="./images/trash.svg" alt="#">
         </button>`
-    productsElement.innerHTML = cartProductContent;
-    DOMproductsCarrito.append(productsElement);
+        productsElement.innerHTML = cartProductContent;
+        DOMproductsCarrito.append(productsElement);
+        const borrarBtn = document.querySelector('.borrar-btn');
+        borrarBtn.addEventListener('click', borrarItemCarrito)
     })
     localStorage.setItem('carrito', JSON.stringify(carrito))
+    console.log(carrito)
 }
 
-// const borrarItemCarrito = () => {
-//     const id = e.target.dataset
-//     // const id = productos.filter((itemProductos) => {
-//         //     return itemProductos.id === Number(item)
-//         // })
-//         carrito = carrito.filter((carritoId) => {
-//             return carritoId !== id;
-//         })
-//         //renderizarCheckOut()
-//         console.log(id)
-//     }
-    
-// const botonDelete = document.getElementsByClassName('delete-product')
-// botonDelete.addEventListener('click', e => {
-//     borrarItemCarrito(e)
-// })
-
-btnCarrito.addEventListener('click', e => {
-    mostrarCheckOutAreaConClick(e)
-})
-
-const mostrarCheckOutAreaConClick = e => {
-    if(contador == 0) {
-        checkOutArea.classList.remove('1184max:hidden')
-        contador = 1
-    } else {
-        checkOutArea.classList.add('1184max:hidden')
-        contador = 0
-        
+const borrarItemCarrito = e => {
+    const id = e.target.dataset.id
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        })
+        console.log(id)
+        renderizarCheckOut()
     }
-}
-
-deliverySelection.addEventListener('click', e => {
-    changeInfoYColor(e)
-})
-
-const changeInfoYColor = e => {
-    checkbox.addEventListener('change', validaCheckbox, false)
-    function validaCheckbox() {
-        let checked = checkbox.checked
-        if(checked){
-            document.getElementById('entregaDomicilio').classList.remove('flex')
-            document.getElementById('entregaDomicilio').classList.add('hidden')
-            document.getElementById('entregaRecoger').classList.add('flex')
-            document.getElementById('entregaRecoger').classList.remove('hidden')
-            document.getElementById('span-check').classList.add('peer-checked:left-17')
-            document.getElementById('deliveryType-checked').classList.remove('text-green-500')
-            document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
-        } else {
-            document.getElementById('entregaDomicilio').classList.add('flex')
-            document.getElementById('entregaDomicilio').classList.remove('hidden')
-            document.getElementById('entregaRecoger').classList.remove('flex')
-            document.getElementById('entregaRecoger').classList.add('hidden')
-            document.getElementById('deliveryType-checked').classList.add('text-green-500')
-            document.getElementById('deliveryType-nochecked').classList.remove('text-green-500')
-        }
-    }
-}
