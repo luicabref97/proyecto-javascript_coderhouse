@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Javascript</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./public/css/tailwind.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -287,7 +288,42 @@
                         </div>
                         <!-- contenedor de los productos de round pizza -->
                         <div id="RoundPizzas-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
-                            
+                            <div class="hidden w-full relative">
+                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                    <div class="max-w-full flex items-center justify-center flex-grow">
+                                        <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
+                                                <!-- Contenedor de texto de la tarjeta -->
+                                                <div class="765min:pr-4 flex flex-col justify-center max-w-full min-h-142px min-w-0">
+                                                    <div class="max-w-full mb-1 flex items-center">
+                                                        <h4 class="product-title text-base font-fontPrincipal tracking-tight text-black m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">${info.nombre}</h4>
+                                                    </div>
+                                                    <div class="max-w-full mb-1">
+                                                        <span class="product-description text-xs font-medium tracking-tight text-gray-500 m-0 p-0 max-w-full overflow-hidden text-ellipsis max-h-10 whitespace-normal">${info.descripcion}</span>
+                                                    </div>
+                                                    <div class="max-w-full flex items-stretch justify-start">
+                                                        <div class="max-w-full mb-1">
+                                                            <div class="text-sm font-fontPrincipal font-medium tracking-normal text-green-600 m-0 p-0 block text-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap"><span>${divisa}</span><span class="product-precio">${info.precio}</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Contenedor de imagen de la tarjeta -->
+                                                <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
+                                                    <div class="765max:h-27.5 h-35.5 bg-white">
+                                                        <picture>
+                                                            <img class="object-cover object-center" src="${info.imagen}" alt="#">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </button>
+                                <!-- contenedor de boton de agregar de la tarjeta -->
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                            </div>
+                            <!-- Separador de tarjeta -->
+                            <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
                         </div>
                     </div>
                     <!-- contenedor de item detroit stytle del menu -->
@@ -300,7 +336,42 @@
                         </div>
                         <!-- contenedor de los productos de Deep Dish Pizzas -->
                         <div id="deepDish-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
-                        
+                            <div class="hidden w-full relative">
+                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                    <div class="max-w-full flex items-center justify-center flex-grow">
+                                        <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
+                                                <!-- Contenedor de texto de la tarjeta -->
+                                                <div class="765min:pr-4 flex flex-col justify-center max-w-full min-h-142px min-w-0">
+                                                    <div class="max-w-full mb-1 flex items-center">
+                                                        <h4 class="product-title text-base font-fontPrincipal tracking-tight text-black m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">${info.nombre}</h4>
+                                                    </div>
+                                                    <div class="max-w-full mb-1">
+                                                        <span class="product-description text-xs font-medium tracking-tight text-gray-500 m-0 p-0 max-w-full overflow-hidden text-ellipsis max-h-10 whitespace-normal">${info.descripcion}</span>
+                                                    </div>
+                                                    <div class="max-w-full flex items-stretch justify-start">
+                                                        <div class="max-w-full mb-1">
+                                                            <div class="text-sm font-fontPrincipal font-medium tracking-normal text-green-600 m-0 p-0 block text-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap"><span>${divisa}</span><span class="product-precio">${info.precio}</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Contenedor de imagen de la tarjeta -->
+                                                <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
+                                                    <div class="765max:h-27.5 h-35.5 bg-white">
+                                                        <picture>
+                                                            <img class="object-cover object-center" src="${info.imagen}" alt="#">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </button>
+                                <!-- contenedor de boton de agregar de la tarjeta -->
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                            </div>
+                            <!-- Separador de tarjeta -->
+                            <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
                         </div>
                     </div>
                     <!-- contenedor de item sides del menu -->
@@ -313,7 +384,42 @@
                         </div>
                         <!-- contenedor de los productos de round pizza -->
                         <div id="Sides-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
-                            
+                            <div class="hidden w-full relative">
+                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                    <div class="max-w-full flex items-center justify-center flex-grow">
+                                        <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
+                                                <!-- Contenedor de texto de la tarjeta -->
+                                                <div class="765min:pr-4 flex flex-col justify-center max-w-full min-h-142px min-w-0">
+                                                    <div class="max-w-full mb-1 flex items-center">
+                                                        <h4 class="product-title text-base font-fontPrincipal tracking-tight text-black m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">${info.nombre}</h4>
+                                                    </div>
+                                                    <div class="max-w-full mb-1">
+                                                        <span class="product-description text-xs font-medium tracking-tight text-gray-500 m-0 p-0 max-w-full overflow-hidden text-ellipsis max-h-10 whitespace-normal">${info.descripcion}</span>
+                                                    </div>
+                                                    <div class="max-w-full flex items-stretch justify-start">
+                                                        <div class="max-w-full mb-1">
+                                                            <div class="text-sm font-fontPrincipal font-medium tracking-normal text-green-600 m-0 p-0 block text-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap"><span>${divisa}</span><span class="product-precio">${info.precio}</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Contenedor de imagen de la tarjeta -->
+                                                <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
+                                                    <div class="765max:h-27.5 h-35.5 bg-white">
+                                                        <picture>
+                                                            <img class="object-cover object-center" src="${info.imagen}" alt="#">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </button>
+                                <!-- contenedor de boton de agregar de la tarjeta -->
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                            </div>
+                            <!-- Separador de tarjeta -->
+                            <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
                         </div>
                     </div>
                     <!-- contenedor de item postres del menu -->
@@ -326,7 +432,42 @@
                         </div>
                         <!-- contenedor de los productos de postres -->
                         <div id="postres-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
-                            
+                            <div class="hidden w-full relative">
+                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                    <div class="max-w-full flex items-center justify-center flex-grow">
+                                        <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
+                                                <!-- Contenedor de texto de la tarjeta -->
+                                                <div class="765min:pr-4 flex flex-col justify-center max-w-full min-h-142px min-w-0">
+                                                    <div class="max-w-full mb-1 flex items-center">
+                                                        <h4 class="product-title text-base font-fontPrincipal tracking-tight text-black m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">${info.nombre}</h4>
+                                                    </div>
+                                                    <div class="max-w-full mb-1">
+                                                        <span class="product-description text-xs font-medium tracking-tight text-gray-500 m-0 p-0 max-w-full overflow-hidden text-ellipsis max-h-10 whitespace-normal">${info.descripcion}</span>
+                                                    </div>
+                                                    <div class="max-w-full flex items-stretch justify-start">
+                                                        <div class="max-w-full mb-1">
+                                                            <div class="text-sm font-fontPrincipal font-medium tracking-normal text-green-600 m-0 p-0 block text-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap"><span>${divisa}</span><span class="product-precio">${info.precio}</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Contenedor de imagen de la tarjeta -->
+                                                <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
+                                                    <div class="765max:h-27.5 h-35.5 bg-white">
+                                                        <picture>
+                                                            <img class="object-cover object-center" src="${info.imagen}" alt="#">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </button>
+                                <!-- contenedor de boton de agregar de la tarjeta -->
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                            </div>
+                            <!-- Separador de tarjeta -->
+                            <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
                         </div>
                     </div>
                 </div>
@@ -437,6 +578,8 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./public/app.js"></script>
 </body>
 </html>

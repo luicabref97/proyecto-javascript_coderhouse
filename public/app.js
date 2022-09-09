@@ -1,4 +1,3 @@
-let divisa = "$"
 const DOMproductsRoundPizzas = document.querySelector('#RoundPizzas-Container')
 const DOMproductsDeepDish = document.querySelector('#deepDish-Container')
 const DOMproductsSides = document.querySelector('#Sides-Container')
@@ -9,8 +8,15 @@ const checkOutArea = document.getElementById('areaCarrito')
 const btnCarrito = document.getElementById('btnCarrito')
 const deliverySelection = document.querySelector('.delivery-type')
 const checkbox = document.getElementById('check')
+let divisa = "$"
 let contador = 0
 let carrito = []
+
+swal({
+    icon: "warning",
+    title: "Bienvenido a Pizza Time!",
+    text: "Sitio web en construccion",
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')) {
@@ -30,7 +36,6 @@ const mostrarCheckOutAreaConClick = e => {
     } else {
         checkOutArea.classList.add('1184max:hidden')
         contador = 0
-        
     }
 }
 
@@ -42,15 +47,18 @@ const changeInfoYColor = e => {
     checkbox.addEventListener('change', validaCheckbox, false)
     function validaCheckbox() {
         let checked = checkbox.checked
-        if(checked){
+        if(checked) {
             document.getElementById('entregaDomicilio').classList.remove('flex')
             document.getElementById('entregaDomicilio').classList.add('hidden')
             document.getElementById('entregaRecoger').classList.add('flex')
             document.getElementById('entregaRecoger').classList.remove('hidden')
-            document.getElementById('span-check').classList.add('peer-checked:left-17')
+            document.getElementById('span-check').classList.remove('left-0')
+            document.getElementById('span-check').classList.add('left-17')
             document.getElementById('deliveryType-checked').classList.remove('text-green-500')
             document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
         } else {
+            document.getElementById('span-check').classList.remove('left-17')
+            document.getElementById('span-check').classList.add('left-0')
             document.getElementById('entregaDomicilio').classList.add('flex')
             document.getElementById('entregaDomicilio').classList.remove('hidden')
             document.getElementById('entregaRecoger').classList.remove('flex')
@@ -70,7 +78,6 @@ class roundPizza {
         this.imagen = imagen;
     }
 }
-
 const roundPizzas = []
 roundPizzas.push(new roundPizza(1, "Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, './images/supremeround.jpg'))
 roundPizzas.push(new roundPizza(2, "Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, './images/pepperoniround.jpg'))
@@ -328,8 +335,23 @@ DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
 const addCarrito = e => {
     if(e.target.classList.contains('addToCart')) {
         carrito.push(e.target.getAttribute('data-id'))
+        Toastify({
+            text: "Agregaste un producto al carrito",
+            duration: 1000,
+            newWindow: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #EF4444, #EF4444)",
+                borderRadius: "1000px",
+                padding: "5px",
+                fontFamily: "Outfit",
+            }
+        }).showToast();
     }
     renderizarCheckOut()
+    
 }
 
 const renderizarCheckOut = () => {
@@ -378,8 +400,8 @@ const renderizarCheckOut = () => {
                 <div class="w-full pl-4 mt-0 mb-0">
                     <hr class="block w-full m-0 h-px bg-white">
                 </div>
-                <div id="cartProductContainer" class="relative">
-                </div>
+                <ul id="cartProductContainer" class="relative">
+                </ul>
                 <div class="w-full pl-4 mt-0 mb-0">
                     <hr class="block w-full m-0 h-px bg-white">
                 </div>
@@ -403,16 +425,11 @@ const renderizarCheckOut = () => {
             return itemID === item ? acc += 1 : acc
         }, 0)
 
-        const productsElement = document.createElement('div')
-        productsElement.classList.add('max-w-full')
-        productsElement.classList.add('flex')
-        productsElement.classList.add('gap-4')
-        productsElement.classList.add('p-4')
-        productsElement.dataset.item = item
+        const productsElement = document.createElement('li')
+        productsElement.classList.add('max-w-full', 'flex', 'gap-4', 'p-4')
         const cartProductContent = `
         <div class="max-w-full flex flex-shrink-0 items-center">
-            <span class="text-base font-fontPrincipal font-medium tracking-normal text-black m-0 p-0 block">${cantidadItem}</span>
-            <span class="text-base font-fontPrincipal font-medium tracking-normal text-black ml-0.5 my-0 mr-0 p-0 block">x</span>
+            <span class="text-base font-fontPrincipal font-medium tracking-normal text-black m-0 p-0 block">${cantidadItem} x</span>
         </div>
         <div class="flex-grow overflow-hidden basis-full">
             <div class="h-full flex flex-col  text-lg font-fontPrincipal tracking-tight text-black text-left m-0 p-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
@@ -420,24 +437,39 @@ const renderizarCheckOut = () => {
                 <span class="text-xs font-fontPrincipal font-medium tracking-normal text-gray-500 m-0 p-0 max-w-full max-h-9 overflow-hidden text-ellipsis whitespace-normal">${miItem[0].descripcion}</span>
                 <span class="text-sm font-fontPrincipal font-medium tracking-normal text-black mt-2 mx-0 mb-0 p-0 max-w-full max-h-9 overflow-hidden text-ellipsis whitespace-normal"><span>$</span>${cantidadItem*miItem[0].precio}</span>
             </div>
-        </div>
-        <button aria-label="boton-trash" class="flex-shrink-0 leading-none flex -m-1 bg-transparent relative max-w-full rounded-100% cursor-pointer select-none no-underline text-center shadow-transparent p-0 items-center justify-center">
-            <img id="borrar-btn" class="borrar-btn flex-shrink-0 overflow-visible" data-id="${item}" src="./images/trash.svg" alt="#">
-        </button>`
+        </div>`
         productsElement.innerHTML = cartProductContent;
-        DOMproductsCarrito.append(productsElement);
-        const borrarBtn = document.querySelector('.borrar-btn');
+        const borrarBtn = document.createElement('img')
+        borrarBtn.classList.add('flex-shrink-0', 'overflow-visible', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'select-none')
+        borrarBtn.src = './images/trash.svg'
+        borrarBtn.dataset.item = item
         borrarBtn.addEventListener('click', borrarItemCarrito)
+        productsElement.appendChild(borrarBtn)
+        DOMproductsCarrito.appendChild(productsElement);
     })
     localStorage.setItem('carrito', JSON.stringify(carrito))
     console.log(carrito)
 }
 
 const borrarItemCarrito = e => {
-    const id = e.target.dataset.id
+    const id = e.target.dataset.item
         carrito = carrito.filter((carritoId) => {
             return carritoId !== id;
         })
+        Toastify({
+            text: "Eliminaste el producto del carrito",
+            duration: 1000,
+            newWindow: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #EF4444, #EF4444)",
+                borderRadius: "1000px",
+                padding: "5px",
+                fontFamily: "Outfit",
+            }
+        }).showToast();
         console.log(id)
         renderizarCheckOut()
     }
