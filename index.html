@@ -198,10 +198,10 @@
                                         <label for="check" class="delivery-type bg-gray-200 w-36 min-w-36 rounded-full relative cursor-pointer min-h-32px ml-4 px-2 flex">
                                             <input type="checkbox" id="check" class="delivery-type peer border-0 sr-only w-full h-full z-20">
                                             <div class="delivery-type flex justify-around select-none gap-3 items-center w-full">
-                                                <span id="deliveryType-checked" class="delivery-type text-sm font-fontPrincipal font-medium tracking-normal text-center m-0 p-0 max-w-full z-10 text-green-500">Delivery</span>
+                                                <span id="deliveryType-checked" class="delivery-type text-sm font-fontPrincipal font-medium tracking-normal text-center m-0 p-0 max-w-full z-10 text-green-600">Delivery</span>
                                                 <span id="deliveryType-nochecked" class="delivery-type text-sm font-fontPrincipal font-medium tracking-normal text-center m-0 p-0 max-w-full z-10">Pick Up</span>
                                             </div>
-                                            <span id="span-check" class="delivery-type w-19 h-full bg-gray-100 bg-opacity-100 absolute rounded-full left-0 transition-all duration-500"></span>
+                                            <span id="span-check" class="delivery-type w-19 h-full bg-gray-100 bg-opacity-100 absolute rounded-full transition-all duration-500 left-0"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -289,7 +289,7 @@
                         <!-- contenedor de los productos de round pizza -->
                         <div id="RoundPizzas-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
                             <div class="hidden w-full relative">
-                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
                                     <div class="max-w-full flex items-center justify-center flex-grow">
                                         <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                                             <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -320,7 +320,7 @@
                                     </div>
                                 </button>
                                 <!-- contenedor de boton de agregar de la tarjeta -->
-                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
                             </div>
                             <!-- Separador de tarjeta -->
                             <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
@@ -337,7 +337,7 @@
                         <!-- contenedor de los productos de Deep Dish Pizzas -->
                         <div id="deepDish-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
                             <div class="hidden w-full relative">
-                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
                                     <div class="max-w-full flex items-center justify-center flex-grow">
                                         <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                                             <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -368,7 +368,7 @@
                                     </div>
                                 </button>
                                 <!-- contenedor de boton de agregar de la tarjeta -->
-                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
                             </div>
                             <!-- Separador de tarjeta -->
                             <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
@@ -385,7 +385,7 @@
                         <!-- contenedor de los productos de round pizza -->
                         <div id="Sides-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
                             <div class="hidden w-full relative">
-                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
                                     <div class="max-w-full flex items-center justify-center flex-grow">
                                         <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                                             <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -416,7 +416,7 @@
                                     </div>
                                 </button>
                                 <!-- contenedor de boton de agregar de la tarjeta -->
-                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
                             </div>
                             <!-- Separador de tarjeta -->
                             <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>
@@ -433,7 +433,7 @@
                         <!-- contenedor de los productos de postres -->
                         <div id="postres-Container" class="grid grid-cols-2 gap-4 765max:grid-cols-1">
                             <div class="hidden w-full relative">
-                                <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+                                <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
                                     <div class="max-w-full flex items-center justify-center flex-grow">
                                         <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                                             <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -464,7 +464,7 @@
                                     </div>
                                 </button>
                                 <!-- contenedor de boton de agregar de la tarjeta -->
-                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+                                <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
                             </div>
                             <!-- Separador de tarjeta -->
                             <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>

@@ -52,19 +52,17 @@ const changeInfoYColor = e => {
             document.getElementById('entregaDomicilio').classList.add('hidden')
             document.getElementById('entregaRecoger').classList.add('flex')
             document.getElementById('entregaRecoger').classList.remove('hidden')
-            document.getElementById('span-check').classList.remove('left-0')
-            document.getElementById('span-check').classList.add('left-17')
-            document.getElementById('deliveryType-checked').classList.remove('text-green-500')
-            document.getElementById('deliveryType-nochecked').classList.add('text-green-500')
+            document.getElementById('deliveryType-checked').classList.remove('text-green-600')
+            document.getElementById('deliveryType-nochecked').classList.add('text-green-600')
+            document.getElementById('span-check').classList.add('peer-checked:left-17')
         } else {
-            document.getElementById('span-check').classList.remove('left-17')
-            document.getElementById('span-check').classList.add('left-0')
+            document.getElementById('span-check').classList.remove('peer-checked:left-17')
             document.getElementById('entregaDomicilio').classList.add('flex')
             document.getElementById('entregaDomicilio').classList.remove('hidden')
             document.getElementById('entregaRecoger').classList.remove('flex')
             document.getElementById('entregaRecoger').classList.add('hidden')
-            document.getElementById('deliveryType-checked').classList.add('text-green-500')
-            document.getElementById('deliveryType-nochecked').classList.remove('text-green-500')
+            document.getElementById('deliveryType-checked').classList.add('text-green-600')
+            document.getElementById('deliveryType-nochecked').classList.remove('text-green-600')
         }
     }
 }
@@ -88,7 +86,7 @@ function renderizarRoundPizzas() {
         const roundPizzasElement = document.createElement('div')
         roundPizzasElement.classList.add('product')
         const roundPizzasProductContent = `<div class="w-full relative">
-        <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+        <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
             <div class="max-w-full flex items-center justify-center flex-grow">
                 <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                     <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -119,7 +117,7 @@ function renderizarRoundPizzas() {
             </div>
         </button>
         <!-- contenedor de boton de agregar de la tarjeta -->
-        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
     </div>
     <!-- Separador de tarjeta -->
     <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>`;
@@ -147,7 +145,7 @@ function renderizarDeepDish() {
         const DeepDishElement = document.createElement('div')
         DeepDishElement.classList.add('product')
         const deepDishProductContent = `<div class="w-full relative">
-        <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+        <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
             <div class="max-w-full flex items-center justify-center flex-grow">
                 <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                     <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -178,7 +176,7 @@ function renderizarDeepDish() {
             </div>
         </button>
         <!-- contenedor de boton de agregar de la tarjeta -->
-        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
     </div>
     <!-- Separador de tarjeta -->
     <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>`;
@@ -206,7 +204,7 @@ function renderizarSides() {
         const SidesElement = document.createElement('div')
         SidesElement.classList.add('product')
         const sidesProductContent = `<div class="w-full relative">
-        <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white  text-gray-600 border-gray-200 border 765max:border-none">
+        <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
             <div class="max-w-full flex items-center justify-center flex-grow">
                 <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                     <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -237,7 +235,7 @@ function renderizarSides() {
             </div>
         </button>
         <!-- contenedor de boton de agregar de la tarjeta -->
-        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
     </div>
     <!-- Separador de tarjeta -->
     <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>`;
@@ -265,7 +263,7 @@ function renderizarDesserts() {
         const dessertsElement = document.createElement('div')
         dessertsElement.classList.add('product')
         const dessertsProductContent = `<div class="w-full relative">
-        <button aria-label="pizza1" class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer transition-shadow select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none">
+        <button class="relative max-w-full m-0 p-0 flex w-full items-center justify-center rounded-md cursor-pointer select-none no-underline text-center bg-white text-gray-600 border-gray-200 border 765max:border-none hover:scale-105 transition-all duration-300">
             <div class="max-w-full flex items-center justify-center flex-grow">
                 <span class="w-full font-fontText font-bold tracking-normal text-center m-0 p-0 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                     <div class="765min:border 765min:border-gray-200 765min:rounded flex flex-5-1-0 flex-row justify-between break-inside-avoid pl-4 text-left min-h-142px">
@@ -296,7 +294,7 @@ function renderizarDesserts() {
             </div>
         </button>
         <!-- contenedor de boton de agregar de la tarjeta -->
-        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
+        <button data-id="${info.id}" class="addToCart absolute right-0 bottom-0 mr-3 mb-3 z-10 max-w-full pt-0 pl-0 w-auto items-center justify-center rounded-full cursor-pointer select-none no-underline text-center bg-gray-100 shadow-sm hover:bg-gray-200 hover:shadow-md active:pt-px text-black text-lg font-fontPrincipal font-bold tracking-normal overflow-hidden text-ellipsis whitespace-nowrap h-8 min-w-8 flex">+</button>
     </div>
     <!-- Separador de tarjeta -->
     <div class="hidden 765max:block 765max:my-0 765max:mx-4 765max:border-t 765max:border-solid 765max:border-gray-200"></div>`;
@@ -351,7 +349,6 @@ const addCarrito = e => {
         }).showToast();
     }
     renderizarCheckOut()
-    
 }
 
 const renderizarCheckOut = () => {
@@ -389,7 +386,7 @@ const renderizarCheckOut = () => {
                     <a href="#" class="text-inherit cursor-pointer relative max-w-full m-0 p-0 flex min-h-40px w-full items-center justify-center rounded-full select-none text-center bg-red-500 shadow-transparent text-white">
                         <div class="w-full max-w-full flex items-center justify-center">
                             <span class="w-full font-fontPrincipal text-base font-bold tracking-normal text-center m-0 px-4 max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-white flex justify-between">
-                                <div id="comprar">Continuar</div>
+                                <div id="comprar">Ir a Pagar</div>
                                 <div><span>$</span>${calcularTotal()}</div>
                             </span>
                         </div>
