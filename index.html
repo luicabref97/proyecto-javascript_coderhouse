@@ -196,7 +196,7 @@
                                             </span>
                                         </button>
                                         <label for="check" class="delivery-type bg-gray-200 w-36 min-w-36 rounded-full relative cursor-pointer min-h-32px ml-4 px-2 flex">
-                                            <input type="checkbox" id="check" class="delivery-type peer border-0 sr-only w-full h-full z-20">
+                                            <input type="checkbox" id="check" class="delivery-type border-0 sr-only w-full h-full z-20">
                                             <div class="delivery-type flex justify-around select-none gap-3 items-center w-full">
                                                 <span id="deliveryType-checked" class="delivery-type text-sm font-fontPrincipal font-medium tracking-normal text-center m-0 p-0 max-w-full z-10 text-green-600">Delivery</span>
                                                 <span id="deliveryType-nochecked" class="delivery-type text-sm font-fontPrincipal font-medium tracking-normal text-center m-0 p-0 max-w-full z-10">Pick Up</span>
@@ -478,8 +478,11 @@
                 <div class="text-base flex gap-2 justify-center">Powered by <span class="font-bold">LUIS CABRERA</span></div>
             </div>
             <!-- Contenedor del area de checkout de carrito -->
-            <div id="areaCarrito" class="w-[340px] h-[calc(100vh_-_64px)] flex-shrink-0 fixed top-16 right-0 1184max:hidden 765max:w-screen z-50 bg-white animate__animated animate__fadeInRight">
-                <div id="carrito" class="w-full h-[calc(100vh_-_64px)] border-l border-l-gray-200 flex flex-col justify-start items-center overflow-y-scroll">    
+            <div id="areaCarrito" class="w-[340px] h-[calc(100vh_-_64px)] flex-shrink-0 fixed top-16 right-0 1184max:-right-96 1184max:fixed 1184max:top-0 1184max:h-full 765max:w-full 765max:-right-full z-50 bg-white transition-all duration-500 ease-linear animate__animated animate__fadeInRight">
+                <div class="1184max:flex hidden pt-4 px-4">
+                    <img id="close-btn" class="cursor-pointer" src="./images/close.svg" alt="#">
+                </div>
+                <div id="carrito" class="w-full h-[calc(100vh_-_64px)] border-l border-l-gray-200 flex flex-col justify-start items-center overflow-y-scroll 1184max:h-full">    
                 </div>
             </div>
             <!-- Header principal de la pagina -->

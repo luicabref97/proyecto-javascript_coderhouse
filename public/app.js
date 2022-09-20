@@ -5,18 +5,19 @@ const DOMproductsDesserts = document.querySelector('#postres-Container')
 const DOMcheckout = document.querySelector('#carrito')
 const DOMnumCarrito = document.querySelector('#cantidad-carrito')
 const checkOutArea = document.getElementById('areaCarrito')
-const btnCarrito = document.getElementById('btnCarrito')
+const btnCarrito = document.getElementById('btnCarrito') 
+const btnClose = document.getElementById('close-btn')
 const deliverySelection = document.querySelector('.delivery-type')
 const checkbox = document.getElementById('check')
 let divisa = "$"
 let contador = 0
 let carrito = []
 
-swal({
-    icon: "warning",
-    title: "Bienvenido a Pizza Time!",
-    text: "Sitio web en construccion",
-});
+// swal({
+//     icon: "warning",
+//     title: "Bienvenido a Pizza Time!",
+//     text: "Sitio web en construccion",
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')) {
@@ -28,15 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 btnCarrito.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
 })
+btnClose.addEventListener('click', e => {
+    mostrarCheckOutAreaConClick(e)
+})
 
 const mostrarCheckOutAreaConClick = e => {
-    if(contador == 0) {
-        checkOutArea.classList.remove('1184max:hidden')
-        contador = 1
-    } else {
-        checkOutArea.classList.add('1184max:hidden')
-        contador = 0
-    }
+    checkOutArea.classList.toggle('1184max:-right-96');
+    checkOutArea.classList.toggle('765max:-right-full');
 }
 
 deliverySelection.addEventListener('click', e => {
@@ -48,15 +47,17 @@ const changeInfoYColor = e => {
     function validaCheckbox() {
         let checked = checkbox.checked
         if(checked) {
+            document.getElementById('span-check').classList.remove('left-0')
+            document.getElementById('span-check').classList.add('left-17')
             document.getElementById('entregaDomicilio').classList.remove('flex')
             document.getElementById('entregaDomicilio').classList.add('hidden')
             document.getElementById('entregaRecoger').classList.add('flex')
             document.getElementById('entregaRecoger').classList.remove('hidden')
             document.getElementById('deliveryType-checked').classList.remove('text-green-600')
             document.getElementById('deliveryType-nochecked').classList.add('text-green-600')
-            document.getElementById('span-check').classList.add('peer-checked:left-17')
         } else {
-            document.getElementById('span-check').classList.remove('peer-checked:left-17')
+            document.getElementById('span-check').classList.remove('left-17')
+            document.getElementById('span-check').classList.add('left-0')
             document.getElementById('entregaDomicilio').classList.add('flex')
             document.getElementById('entregaDomicilio').classList.remove('hidden')
             document.getElementById('entregaRecoger').classList.remove('flex')
@@ -324,11 +325,6 @@ productsDesserts.addEventListener('click', e => {
 
 const productos = Array.prototype.concat(roundPizzas, deepDishPizzas, Sides, Desserts)
 DOMnumCarrito.innerHTML = Number(carrito.length)
-DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
-<div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
-<span class="font-fontText font-medium text-sm text-center text-gray-500">Tu carrito esta vacío</span>
-<span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
-</div>`
 
 const addCarrito = e => {
     if(e.target.classList.contains('addToCart')) {
@@ -406,10 +402,10 @@ const renderizarCheckOut = () => {
         </div>`
     } else {
         DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
-<div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
-<span class="font-fontText font-medium text-sm text-center text-gray-500">Tu carrito esta vacío</span>
-<span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
-</div>`
+        <div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
+        <span class="font-fontText font-medium text-sm text-center text-gray-500">Tu carrito esta vacío</span>
+        <span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
+        </div>`
     }
     const DOMproductsCarrito = document.querySelector('#cartProductContainer')
     
