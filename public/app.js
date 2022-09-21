@@ -20,11 +20,25 @@ let carrito = []
 // });
 
 document.addEventListener('DOMContentLoaded', () => {
+    fetchData()
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
     renderizarCheckOut()
 })
+
+const fetchData = async () => {
+    try {
+        const res = await fetch('../api.json')
+        const data = await res.json()
+        rRoundPizzas(data.roundPizzas)
+        rDeepDish(data.deepDishPizzas)
+        rSides(data.Sides)
+        rDesserts(data.Desserts)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 btnCarrito.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
@@ -77,13 +91,14 @@ class roundPizza {
         this.imagen = imagen;
     }
 }
+
 const roundPizzas = []
 roundPizzas.push(new roundPizza(1, "Supreme", "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron", 2200, './images/supremeround.jpg'))
 roundPizzas.push(new roundPizza(2, "Classic Pepperoni", "Pizza grande con salsa de tomate, queso y pepperoni", 1900, './images/pepperoniround.jpg'))
 roundPizzas.push(new roundPizza(3, "Classic Cheese", "Pizza grande con salsa de tomate y queso", 1500, './images/cheeseround.jpg'))
 
-function renderizarRoundPizzas() {
-    roundPizzas.forEach((info) => {
+const rRoundPizzas = data => {
+    data.forEach((info) => {
         const roundPizzasElement = document.createElement('div')
         roundPizzasElement.classList.add('product')
         const roundPizzasProductContent = `<div class="w-full relative">
@@ -126,7 +141,6 @@ function renderizarRoundPizzas() {
         DOMproductsRoundPizzas.append(roundPizzasElement);
     })
 }
-renderizarRoundPizzas()
 
 class deepDishPizza {
     constructor(id, nombre, descripcion, precio, imagen){
@@ -141,8 +155,8 @@ const deepDishPizzas = []
 deepDishPizzas.push(new deepDishPizza(4, "Detroit-Sytle Deep Dish Sausage", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate, queso y salchicha italiana", 1900, './images/deepdmeet.jpg'))
 deepDishPizzas.push(new deepDishPizza(5, "Detroit-Sytle Deep Dish Cheese", "Pizza grande Estilo Detroit Deep Dish con salsa de tomate y queso", 1500, './images/deepdcheese.jpg'))
 
-function renderizarDeepDish() {
-    deepDishPizzas.forEach((info) => {
+const rDeepDish = data => {
+    data.forEach((info) => {
         const DeepDishElement = document.createElement('div')
         DeepDishElement.classList.add('product')
         const deepDishProductContent = `<div class="w-full relative">
@@ -185,7 +199,6 @@ function renderizarDeepDish() {
         DOMproductsDeepDish.append(DeepDishElement);
     })
 }
-renderizarDeepDish()
 
 class Side {
     constructor(id, nombre, descripcion, precio, imagen){
@@ -200,8 +213,8 @@ const Sides = []
 Sides.push(new Side(6, "Italian Cheese Bread", "10 piezas de pan recien horneado con borde crispy, queso y topping de especias italianas", 1200, './images/italianbreads.jpg'))
 Sides.push(new Side(7, "Crazy Breads", "8 panes tipo baston con sabor a manteca y ajo, cubierto con queso parmesano rallado", 900, './images/crazybreads.jpg'))
 
-function renderizarSides() {
-    Sides.forEach((info) => {
+const rSides = data => {
+    data.forEach((info) => {
         const SidesElement = document.createElement('div')
         SidesElement.classList.add('product')
         const sidesProductContent = `<div class="w-full relative">
@@ -244,8 +257,6 @@ function renderizarSides() {
         DOMproductsSides.append(SidesElement);
     })
 }
-renderizarSides()
-
 class Dessert {
     constructor(id, nombre, descripcion, precio, imagen){
         this.id = id;
@@ -259,8 +270,8 @@ const Desserts = []
 Desserts.push(new Dessert(8, "Cookie Brownie M&M'S", "Brownie cubierto con masa para galletas y M&M'S", 600, './images/browniemym.jpg'))
 Desserts.push(new Dessert(9, "Cookie Brownie Coffler Block", "Brownie cubierto con masa para galletas y chocolates Coffler block", 600, './images/browniechocolate.jpg'))
 
-function renderizarDesserts() {
-    Desserts.forEach((info) => {
+const rDesserts = data => {
+    data.forEach((info) => {
         const dessertsElement = document.createElement('div')
         dessertsElement.classList.add('product')
         const dessertsProductContent = `<div class="w-full relative">
@@ -303,7 +314,6 @@ function renderizarDesserts() {
         DOMproductsDesserts.append(dessertsElement);
     })
 }
-renderizarDesserts()
 
 const productsRoundPizza = document.getElementById('RoundPizzas-Container')
 const productsDeepDish = document.getElementById('deepDish-Container')

@@ -1,0 +1,73 @@
+{
+    "roundPizzas": [
+        {
+            "id": 1,
+            "nombre": "Supreme",
+            "descripcion": "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron",
+            "precio": 2200,
+            "imagen": "./images/supremeround.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "Classic Pepperoni",
+            "descripcion": "Pizza grande con salsa de tomate, queso y pepperoni",
+            "precio": 1900,
+            "imagen": "./images/pepperoniround.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Classic Cheese",
+            "descripcion": "Pizza grande con salsa de tomate y queso",
+            "precio": 1500,
+            "imagen": "./images/cheeseround.jpg"
+        }
+    ],
+    "deepDishPizzas": [
+        {
+            "id": 4,
+            "nombre": "Detroit-Sytle Deep Dish Sausage",
+            "descripcion": "Pizza grande Estilo Detroit Deep Dish con salsa de tomate, queso y salchicha italiana",
+            "precio": 1900,
+            "imagen": "./images/deepdmeet.jpg"
+        },
+        {
+            "id": 5,
+            "nombre": "Detroit-Sytle Deep Dish Cheese",
+            "descripcion": "Pizza grande Estilo Detroit Deep Dish con salsa de tomate y queso",
+            "precio": 1500,
+            "imagen": "./images/deepdcheese.jpg"
+        }
+    ],
+    "Sides": [
+        {
+            "id": 6,
+            "nombre": "Italian Cheese Bread",
+            "descripcion": "10 piezas de pan recien horneado con borde crispy, queso y topping de especias italianas",
+            "precio": 1200,
+            "imagen": "./images/italianbreads.jpg"
+        },
+        {
+            "id": 7,
+            "nombre": "Crazy Breads",
+            "descripcion": "8 panes tipo baston con sabor a manteca y ajo, cubierto con queso parmesano rallado",
+            "precio": 900,
+            "imagen": "./images/crazybreads.jpg"
+        }
+    ],
+    "Desserts": [
+        {
+            "id": 8,
+            "nombre": "Cookie Brownie M&M'S",
+            "descripcion": "Brownie cubierto con masa para galletas y M&M'S",
+            "precio": 600,
+            "imagen": "./images/browniemym.jpg"
+        },
+        {
+            "id": 9,
+            "nombre": "Cookie Brownie Coffler Block",
+            "descripcion": "Brownie cubierto con masa para galletas y chocolates Coffler block",
+            "precio": 600,
+            "imagen": "./images/browniechocolate.jpg"
+        }
+    ]
+}
