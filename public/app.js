@@ -20,25 +20,34 @@ swal({
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchData()
+    //fetchData()
+    fetch('../api.json')
+        .then((data) => data.json())
+        .then((json) => {
+            rRoundPizzas(json.roundPizzas)
+            rDeepDish(json.deepDishPizzas)
+            rSides(json.Sides)
+            rDesserts(json.Desserts)
+        }
+        )
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
     renderizarCheckOut()
 })
 
-const fetchData = async () => {
-    try {
-        const res = await fetch('../api.json')
-        const data = await res.json()
-        rRoundPizzas(data.roundPizzas)
-        rDeepDish(data.deepDishPizzas)
-        rSides(data.Sides)
-        rDesserts(data.Desserts)
-    } catch (error) {
-        console.log(error)
-    }
-}
+// const fetchData = async () => {
+//     try {
+//         const res = await fetch('../api.json')
+//         const data = await res.json()
+//         rRoundPizzas(data.roundPizzas)
+//         rDeepDish(data.deepDishPizzas)
+//         rSides(data.Sides)
+//         rDesserts(data.Desserts)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
 btnCarrito.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
@@ -124,7 +133,7 @@ const rRoundPizzas = data => {
                         <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
                             <div class="765max:h-27.5 h-35.5 bg-white">
                                 <picture>
-                                    <img class="object-cover object-center" src=".${info.imagen}" alt="#">
+                                    <img class="object-cover object-center" src="${info.imagen}" alt="#">
                                 </picture>
                             </div>
                         </div>
@@ -182,7 +191,7 @@ const rDeepDish = data => {
                         <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
                             <div class="765max:h-27.5 h-35.5 bg-white">
                                 <picture>
-                                    <img class="object-cover object-center" src=".${info.imagen}" alt="#">
+                                    <img class="object-cover object-center" src="${info.imagen}" alt="#">
                                 </picture>
                             </div>
                         </div>
@@ -240,7 +249,7 @@ const rSides = data => {
                         <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
                             <div class="765max:h-27.5 h-35.5 bg-white">
                                 <picture>
-                                    <img class="object-cover object-center" src=".${info.imagen}" alt="#">
+                                    <img class="object-cover object-center" src="${info.imagen}" alt="#">
                                 </picture>
                             </div>
                         </div>
@@ -297,7 +306,7 @@ const rDesserts = data => {
                         <div class="765min:p-0 765min:flex-2-1-0 p-4 min-w-35.5 max-w-35.5">
                             <div class="765max:h-27.5 h-35.5 bg-white">
                                 <picture>
-                                    <img class="object-cover object-center" src=".${info.imagen}" alt="#">
+                                    <img class="object-cover object-center" src="${info.imagen}" alt="#">
                                 </picture>
                             </div>
                         </div>
