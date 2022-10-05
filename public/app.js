@@ -13,11 +13,11 @@ let divisa = "$"
 let contador = 0
 let carrito = []
 
-// swal({
-//     icon: "warning",
-//     title: "Bienvenido a Pizza Time!",
-//     text: "Sitio web en construccion",
-// });
+swal({
+    icon: "warning",
+    title: "Bienvenido a Pizza Time!",
+    text: "Sitio web en construccion",
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData()
@@ -389,10 +389,10 @@ const renderizarCheckOut = () => {
             </div>
             <div class="py-0 px-4 mb-4">
                 <div class="max-w-full">
-                    <a href="#" class="text-inherit cursor-pointer relative max-w-full m-0 p-0 flex min-h-40px w-full items-center justify-center rounded-full select-none text-center bg-red-500 shadow-transparent text-white">
+                    <a href="#" id="comprar" class="text-inherit cursor-pointer relative max-w-full m-0 p-0 flex min-h-40px w-full items-center justify-center rounded-full select-none text-center bg-red-500 shadow-transparent text-white">
                         <div class="w-full max-w-full flex items-center justify-center">
                             <span class="w-full font-fontPrincipal text-base font-bold tracking-normal text-center m-0 px-4 max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-white flex justify-between">
-                                <div id="comprar">Ir a Pagar</div>
+                                <div>Ir a Pagar</div>
                                 <div><span>$</span>${calcularTotal()}</div>
                             </span>
                         </div>
@@ -410,6 +410,8 @@ const renderizarCheckOut = () => {
                 </div>
             </div>
         </div>`
+        const btnComprar = document.getElementById('comprar');
+        btnComprar.addEventListener('click', comprar) 
     } else {
         DOMcheckout.innerHTML = `<div class="w-full max-w-full p-4 flex flex-col">
         <div class="my-5 mx-0"><img class="w-full" src="./images/Frame.svg" alt="#"></div>
@@ -417,7 +419,8 @@ const renderizarCheckOut = () => {
         <span class="font-fontText font-medium text-sm text-center text-gray-500">Agrega elementos para comenzar</span>
         </div>`
     }
-    const DOMproductsCarrito = document.querySelector('#cartProductContainer')
+    
+    const DOMproductsCarrito = document.querySelector('#cartProductContainer');
     
     const carritoSinDuplicados = [...new Set(carrito)]
     carritoSinDuplicados.forEach((item) => {
@@ -429,13 +432,15 @@ const renderizarCheckOut = () => {
         }, 0)
 
         const productsElement = document.createElement('li')
-        productsElement.classList.add('max-w-full', 'flex', 'gap-4', 'p-4')
+        productsElement.classList.add('max-w-full', 'flex', 'gap-4', 'p-2')
         const cartProductContent = `
-        <div class="max-w-full flex flex-shrink-0 items-center">
+        <div class="contenedor-cantidad max-w-full flex flex-shrink-0 items-center flex-col justify-center">
+            <span data-id="${miItem[0].id}" class="sum-producto font-fontPrincipal font-semibold text-lg tracking-normal text-black rounded-full p-1 cursor-pointer active:bg-gray-300">+</span>
             <span class="text-base font-fontPrincipal font-medium tracking-normal text-black m-0 p-0 block">${cantidadItem} x</span>
+            <span data-id="${miItem[0].id}" class="res-producto font-fontPrincipal font-semibold tracking-normal text-black rounded-full p-1 cursor-pointer active:bg-gray-300">-</span>
         </div>
         <div class="flex-grow overflow-hidden basis-full">
-            <div class="h-full flex flex-col  text-lg font-fontPrincipal tracking-tight text-black text-left m-0 p-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+            <div class="h-full flex flex-col text-lg font-fontPrincipal tracking-tight text-black text-left m-0 p-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                 <span class="text-base font-fontPrincipal font-medium tracking-normal text-black m-0 p-0 max-w-full max-h-11 overflow-hidden text-ellipsis whitespace-normal">${miItem[0].nombre}</span>
                 <span class="text-xs font-fontPrincipal font-medium tracking-normal text-gray-500 m-0 p-0 max-w-full max-h-9 overflow-hidden text-ellipsis whitespace-normal">${miItem[0].descripcion}</span>
                 <span class="text-sm font-fontPrincipal font-medium tracking-normal text-black mt-2 mx-0 mb-0 p-0 max-w-full max-h-9 overflow-hidden text-ellipsis whitespace-normal"><span>$</span>${cantidadItem*miItem[0].precio}</span>
@@ -449,6 +454,14 @@ const renderizarCheckOut = () => {
         borrarBtn.addEventListener('click', borrarItemCarrito)
         productsElement.appendChild(borrarBtn)
         DOMproductsCarrito.appendChild(productsElement);
+        let btnSumarProducto = document.getElementsByClassName('sum-producto')
+        let btnRestarProducto = document.getElementsByClassName('res-producto')
+        for(let sum of btnSumarProducto) {
+            sum.addEventListener('click', sumarProducto)
+        }
+        for(let res of btnRestarProducto) {
+            res.addEventListener('click', restarProducto)
+        }
     })
     localStorage.setItem('carrito', JSON.stringify(carrito))
     console.log(carrito)
@@ -456,23 +469,77 @@ const renderizarCheckOut = () => {
 
 const borrarItemCarrito = e => {
     const id = e.target.dataset.item
-        carrito = carrito.filter((carritoId) => {
-            return carritoId !== id;
-        })
-        Toastify({
-            text: "Eliminaste el producto del carrito",
-            duration: 1000,
-            newWindow: true,
-            gravity: "bottom",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-                background: "linear-gradient(to right, #EF4444, #EF4444)",
-                borderRadius: "1000px",
-                padding: "5px",
-                fontFamily: "Outfit",
-            }
-        }).showToast();
-        console.log(id)
-        renderizarCheckOut()
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== id;
+    })
+    Toastify({
+        text: "Eliminaste el producto del carrito",
+        duration: 1000,
+        newWindow: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right, #EF4444, #EF4444)",
+            borderRadius: "1000px",
+            padding: "5px",
+            fontFamily: "Outfit",
+        }
+    }).showToast();
+    renderizarCheckOut()
+}
+        
+const sumarProducto = e => {
+    carrito.push(e.target.getAttribute('data-id'))
+    Toastify({
+        text: "sumaste un producto del carrito",
+        duration: 1000,
+        newWindow: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right, #EF4444, #EF4444)",
+            borderRadius: "1000px",
+            padding: "5px",
+            fontFamily: "Outfit",
+        }
+    }).showToast();
+    //console.log(id)
+    renderizarCheckOut()
+}
+
+const restarProducto = e => {
+    for(let i = carrito.length - 1; i >= 0; i--) {
+        if(carrito[i] === e.target.getAttribute('data-id')) {
+        carrito.splice(i--, 1);
+        }
     }
+    Toastify({
+        text: "restaste un producto del carrito",
+        duration: 1000,
+        newWindow: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right, #EF4444, #EF4444)",
+            borderRadius: "1000px",
+            padding: "5px",
+            fontFamily: "Outfit",
+        }
+    }).showToast();
+    renderizarCheckOut()
+}
+
+const comprar = () => {
+    swal({
+        position: 'center',
+        icon: 'success',
+        title: 'Gracias por tu compra',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    carrito.splice(0, carrito.length)
+    renderizarCheckOut()
+}
