@@ -20,23 +20,21 @@ swal({
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    //fetchData()
-    fetch('./api.json')
-        .then((data) => data.json())
-        .then((json) => {
-            rRoundPizzas(json.roundPizzas)
-            rDeepDish(json.deepDishPizzas)
-            rSides(json.Sides)
-            rDesserts(json.Desserts)
-        }
-        )
+    fetchData()
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
     renderizarCheckOut()
 })
 
-// const fetchData = async () => {
+const fetchData = async () => {
+    const res = await fetch('../api.json');
+    const data = await res.json();
+    rRoundPizzas(data.roundPizzas)
+    rDeepDish(data.deepDishPizzas)
+    rSides(data.Sides)
+    rDesserts(data.Desserts)
+}
 //     try {
 //         const res = await fetch('../api.json')
 //         const data = await res.json()
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     } catch (error) {
 //         console.log(error)
 //     }
-// }
+
 
 btnCarrito.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
