@@ -21,7 +21,7 @@ swal({
 
 document.addEventListener('DOMContentLoaded', () => {
     //fetchData()
-    fetch('../api.json')
+    fetch('./api.json')
         .then((data) => data.json())
         .then((json) => {
             rRoundPizzas(json.roundPizzas)
