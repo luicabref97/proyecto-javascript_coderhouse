@@ -9,6 +9,9 @@ const btnCarrito = document.getElementById('btnCarrito')
 const btnClose = document.getElementById('close-btn')
 const deliverySelection = document.querySelector('.delivery-type')
 const checkbox = document.getElementById('check')
+const masInfo = document.getElementById('masInfo')
+const btnNavProducts = document.getElementById('navbarIcon-productos')
+const btnUbicacion = document.querySelector('.btnUbicacion')
 let divisa = "$"
 let contador = 0
 let carrito = []
@@ -48,16 +51,49 @@ btnClose.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
 })
 
-const mostrarCheckOutAreaConClick = e => {
+const mostrarCheckOutAreaConClick = () => {
     checkOutArea.classList.toggle('1184max:-right-96');
     checkOutArea.classList.toggle('765max:-right-full');
+}
+
+btnUbicacion.addEventListener('click', e => {
+    btnInsertUbicacion(e)
+})
+
+const  btnInsertUbicacion = () => {
+    swal({
+        icon: "warning",
+        text: "Boton en desarrollo",
+    });
+}
+
+btnNavProducts.addEventListener('click', e => {
+    btnNavBar(e)
+})
+
+const btnNavBar = () => {
+    swal({
+        icon: "warning",
+        text: "Boton en desarrollo",
+    });
+}
+
+masInfo.addEventListener('click', e => {
+    btnInfo(e)
+})
+
+const btnInfo = () => {
+    swal({
+        icon: "warning",
+        text: "Boton en desarrollo",
+    });
 }
 
 deliverySelection.addEventListener('click', e => {
     changeInfoYColor(e)
 })
 
-const changeInfoYColor = e => {
+const changeInfoYColor = () => {
     checkbox.addEventListener('change', validaCheckbox, false)
     function validaCheckbox() {
         let checked = checkbox.checked
