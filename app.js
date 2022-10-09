@@ -20,34 +20,26 @@ swal({
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    //fetchData()
-    fetch('../api.json')
-        .then((data) => data.json())
-        .then((json) => {
-            rRoundPizzas(json.roundPizzas)
-            rDeepDish(json.deepDishPizzas)
-            rSides(json.sides)
-            rDesserts(json.desserts)
-        }
-        )
+    fetchData()
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
     renderizarCheckOut()
 })
 
-// const fetchData = async () => {
-//     try {
-//         const res = await fetch('../api.json')
-//         const data = await res.json()
-//         rRoundPizzas(data.roundPizzas)
-//         rDeepDish(data.deepDishPizzas)
-//         rSides(data.Sides)
-//         rDesserts(data.Desserts)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+const fetchData = async () => {
+    try {
+        const res = await fetch('./api.json')
+        const data = await res.json()
+        console.log(data)
+        rRoundPizzas(data.roundPizzas)
+        rDeepDish(data.deepDishPizzas)
+        rSides(data.sides)
+        rDesserts(data.desserts)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 btnCarrito.addEventListener('click', e => {
     mostrarCheckOutAreaConClick(e)
@@ -546,7 +538,7 @@ const comprar = () => {
         position: 'center',
         icon: 'success',
         title: 'Gracias por tu compra',
-        showConfirmButton: false,
+        button: false,
         timer: 1500
     });
     carrito.splice(0, carrito.length)

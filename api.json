@@ -5,21 +5,21 @@
             "nombre": "Supreme",
             "descripcion": "Pizza grande con salsa de tomate, queso, pepperoni, salchicha, hongos, cebollas y morron",
             "precio": 2200,
-            "imagen": "./images/supremeround.jpg"
+            "imagen": "https://i.ibb.co/3WLn29n/supremeround.jpg"
         },
         {
             "id": 2,
             "nombre": "Classic Pepperoni",
             "descripcion": "Pizza grande con salsa de tomate, queso y pepperoni",
             "precio": 1900,
-            "imagen": "./images/pepperoniround.jpg"
+            "imagen": "https://i.ibb.co/Jp35ZFV/pepperoniround.jpg"
         },
         {
             "id": 3,
             "nombre": "Classic Cheese",
             "descripcion": "Pizza grande con salsa de tomate y queso",
             "precio": 1500,
-            "imagen": "./images/cheeseround.jpg"
+            "imagen": "https://i.ibb.co/9G4wK5Z/cheeseround.jpg"
         }
     ],
     "deepDishPizzas": [
@@ -28,14 +28,14 @@
             "nombre": "Detroit-Sytle Deep Dish Sausage",
             "descripcion": "Pizza grande Estilo Detroit Deep Dish con salsa de tomate, queso y salchicha italiana",
             "precio": 1900,
-            "imagen": "./images/deepdmeet.jpg"
+            "imagen": "https://i.ibb.co/R66DTfZ/deepdmeet.jpg"
         },
         {
             "id": 5,
             "nombre": "Detroit-Sytle Deep Dish Cheese",
             "descripcion": "Pizza grande Estilo Detroit Deep Dish con salsa de tomate y queso",
             "precio": 1500,
-            "imagen": "./images/deepdcheese.jpg"
+            "imagen": "https://i.ibb.co/4JJrtGG/deepdcheese.jpg"
         }
     ],
     "sides": [
@@ -44,14 +44,14 @@
             "nombre": "Italian Cheese Bread",
             "descripcion": "10 piezas de pan recien horneado con borde crispy, queso y topping de especias italianas",
             "precio": 1200,
-            "imagen": "./images/italianbreads.jpg"
+            "imagen": "https://i.ibb.co/7yTjHrq/italianbreads.jpg"
         },
         {
             "id": 7,
             "nombre": "Crazy Breads",
             "descripcion": "8 panes tipo baston con sabor a manteca y ajo, cubierto con queso parmesano rallado",
             "precio": 900,
-            "imagen": "./images/crazybreads.jpg"
+            "imagen": "https://i.ibb.co/GRmMJbz/crazybreads.jpg"
         }
     ],
     "desserts": [
@@ -60,14 +60,14 @@
             "nombre": "Cookie Brownie M&M'S",
             "descripcion": "Brownie cubierto con masa para galletas y M&M'S",
             "precio": 600,
-            "imagen": "./images/browniemym.jpg"
+            "imagen": "https://i.ibb.co/G9PZhQz/browniemym.jpg"
         },
         {
             "id": 9,
             "nombre": "Cookie Brownie Coffler Block",
             "descripcion": "Brownie cubierto con masa para galletas y chocolates Coffler block",
             "precio": 600,
-            "imagen": "./images/browniechocolate.jpg"
+            "imagen": "https://i.ibb.co/TKH9P9j/browniechocolate.jpg"
         }
     ]
 }
